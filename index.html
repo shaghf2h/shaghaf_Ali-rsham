@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الشهيد الشاعر علي رشم</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Tajawal', sans-serif;
+    direction: rtl;
+    background: #1a0f05;
+  }
+
+  .site-wrapper {
+    min-height: 100vh;
+    background: #1a0f05;
+    background-image: radial-gradient(ellipse at top, #2d1a08 0%, #1a0f05 60%);
+  }
+
+  /* ===== LANDING PAGE ===== */
+  #landing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #landing::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 50%, rgba(139,90,43,0.15) 0%, transparent 50%),
+      radial-gradient(circle at 80% 50%, rgba(100,60,20,0.1) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .stars {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: rgba(255,220,150,0.6);
+    border-radius: 50%;
+    animation: twinkle 3s ease-in-out infinite;
+  }
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+  }
+
+  .book-cover {
+    width: 220px;
+    height: 300px;
+    background: linear-gradient(135deg, #5c2d00 0%, #3d1c00 40%, #2a1200 100%);
+    border-radius: 4px 16px 16px 4px;
+    box-shadow:
+      -8px 0 0 0 #1a0800,
+      -10px 4px 20px rgba(0,0,0,0.8),
+      0 4px 30px rgba(0,0,0,0.5),
+      inset 4px 0 8px rgba(255,255,255,0.05);
+    cursor: pointer;
+    position: relative;
+    transform: perspective(800px) rotateY(-5deg);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    border: 1px solid rgba(180,120,40,0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-bottom: 2rem;
+  }
+
+  .book-cover:hover {
+    transform: perspective(800px) rotateY(-15deg) translateX(-10px);
+    box-shadow:
+      -8px 0 0 0 #1a0800,
+      -20px 8px 40px rgba(0,0,0,0.9),
+      10px 4px 30px rgba(180,120,40,0.2),
+      inset 4px 0 8px rgba(255,255,255,0.08);
+  }
+
+  .book-cover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 12px;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+    border-radius: 0 16px 16px 0;
+  }
+
+  .cover-image-container {
+    width: 160px;
+    height: 180px;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid rgba(180,120,40,0.4);
+    position: relative;
+    margin-bottom: 12px;
+  }
+
+  .cover-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .cover-placeholder {
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 1px dashed rgba(180,120,40,0.5);
+    transition: background 0.2s;
+  }
+
+  .cover-placeholder:hover {
+    background: rgba(180,120,40,0.1);
+  }
+
+  .cover-placeholder i {
+    font-size: 32px;
+    color: rgba(180,120,40,0.7);
+    margin-bottom: 6px;
+  }
+
+  .cover-placeholder span {
+    font-size: 11px;
+    color: rgba(180,120,40,0.6);
+    font-family: 'Tajawal', sans-serif;
+  }
+
+  .cover-title-text {
+    font-family: 'Amiri', serif;
+    color: #d4a555;
+    font-size: 13px;
+    text-align: center;
+    padding: 0 10px;
+    line-height: 1.5;
+    text-shadow: 0 0 10px rgba(212,165,85,0.5);
+  }
+
+  .cover-ornament {
+    color: rgba(212,165,85,0.5);
+    font-size: 14px;
+    margin: 4px 0;
+  }
+
+  .site-title {
+    font-family: 'Amiri', serif;
+    color: #d4a555;
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 20px rgba(212,165,85,0.4);
+    line-height: 1.4;
+  }
+
+  .site-subtitle {
+    font-family: 'Tajawal', sans-serif;
+    color: rgba(212,165,85,0.6);
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    letter-spacing: 2px;
+  }
+
+  .open-book-btn {
+    background: transparent;
+    border: 1px solid rgba(212,165,85,0.5);
+    color: #d4a555;
+    padding: 12px 32px;
+    font-family: 'Amiri', serif;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all 0.3s;
+    letter-spacing: 1px;
+  }
+
+  .open-book-btn:hover {
+    background: rgba(212,165,85,0.1);
+    border-color: rgba(212,165,85,0.8);
+    box-shadow: 0 0 20px rgba(212,165,85,0.2);
+  }
+
+  /* ===== BOOK VIEW ===== */
+  #book-view {
+    display: none;
+    min-height: 100vh;
+    background: #f5efe0;
+  }
+
+  .book-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background: rgba(90,50,10,0.97);
+    border-bottom: 1px solid rgba(212,165,85,0.3);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .nav-title {
+    font-family: 'Amiri', serif;
+    color: #d4a555;
+    font-size: 1rem;
+  }
+
+  .page-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .nav-btn {
+    background: transparent;
+    border: 1px solid rgba(212,165,85,0.4);
+    color: #d4a555;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    font-size: 18px;
+  }
+
+  .nav-btn:hover:not(:disabled) {
+    background: rgba(212,165,85,0.15);
+    border-color: rgba(212,165,85,0.8);
+  }
+
+  .nav-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  .page-indicator {
+    font-family: 'Tajawal', sans-serif;
+    color: rgba(212,165,85,0.8);
+    font-size: 0.85rem;
+    min-width: 100px;
+    text-align: center;
+  }
+
+  .close-btn {
+    background: transparent;
+    border: none;
+    color: rgba(212,165,85,0.6);
+    cursor: pointer;
+    font-size: 20px;
+    padding: 4px 8px;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+  }
+
+  .close-btn:hover { color: #d4a555; }
+
+  /* ===== PAGE STYLES ===== */
+  .page-content {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 3rem 2.5rem 4rem;
+    min-height: calc(100vh - 70px);
+    position: relative;
+    display: none;
+  }
+
+  .page-content.active {
+    display: block;
+    animation: pageFade 0.5s ease;
+  }
+
+  @keyframes pageFade {
+    from { opacity: 0; transform: translateX(20px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  .page-content::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(180deg, transparent, rgba(90,50,10,0.15), transparent);
+  }
+
+  /* Page 1 */
+  .page-1-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(90,50,10,0.2);
+  }
+
+  .martyr-badge {
+    display: inline-block;
+    background: rgba(139,20,20,0.1);
+    border: 1px solid rgba(139,20,20,0.3);
+    color: #8b1414;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 0.8rem;
+    padding: 4px 16px;
+    border-radius: 2px;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+  }
+
+  .page-main-title {
+    font-family: 'Amiri', serif;
+    font-size: 2.2rem;
+    color: #3d1c00;
+    line-height: 1.4;
+    margin-bottom: 0.5rem;
+  }
+
+  .page-dates {
+    font-family: 'Tajawal', sans-serif;
+    color: rgba(90,50,10,0.6);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+  }
+
+  .ornament-sep {
+    text-align: center;
+    color: rgba(212,165,85,0.5);
+    font-size: 1.2rem;
+    margin: 1.5rem 0;
+    letter-spacing: 8px;
+  }
+
+  .bio-text {
+    font-family: 'Amiri', serif;
+    font-size: 1.2rem;
+    color: #2d1500;
+    line-height: 2.2;
+    text-align: justify;
+  }
+
+  /* Page 2 */
+  .martyrdom-block {
+    background: rgba(139,20,20,0.05);
+    border-right: 4px solid #8b1414;
+    padding: 1.5rem 1.5rem 1.5rem 1rem;
+    margin: 2rem 0;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .martyrdom-title {
+    font-family: 'Amiri', serif;
+    font-size: 1.5rem;
+    color: #8b1414;
+    margin-bottom: 1rem;
+  }
+
+  .martyrdom-text {
+    font-family: 'Amiri', serif;
+    font-size: 1.15rem;
+    color: #2d1500;
+    line-height: 2.2;
+  }
+
+  .quote-block {
+    margin: 2rem 0;
+    padding: 1.5rem 2rem;
+    background: rgba(212,165,85,0.08);
+    border: 1px solid rgba(212,165,85,0.3);
+    border-radius: 4px;
+    text-align: center;
+  }
+
+  .quote-mark {
+    font-family: 'Amiri', serif;
+    font-size: 3rem;
+    color: rgba(212,165,85,0.4);
+    line-height: 0.5;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .quote-text {
+    font-family: 'Amiri', serif;
+    font-size: 1.2rem;
+    color: #3d1c00;
+    line-height: 1.8;
+    font-style: italic;
+    margin: 0.75rem 0;
+  }
+
+  .quote-attr {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 0.85rem;
+    color: rgba(90,50,10,0.6);
+    margin-top: 0.75rem;
+  }
+
+  /* Page 3 */
+  .legacy-text {
+    font-family: 'Amiri', serif;
+    font-size: 1.2rem;
+    color: #2d1500;
+    line-height: 2.2;
+    text-align: justify;
+    margin-bottom: 1.5rem;
+  }
+
+  .remembrance-quote {
+    margin: 2rem 0;
+    padding: 2rem;
+    background: rgba(90,50,10,0.04);
+    border-top: 1px solid rgba(90,50,10,0.2);
+    border-bottom: 1px solid rgba(90,50,10,0.2);
+    text-align: center;
+  }
+
+  .remembrance-text {
+    font-family: 'Amiri', serif;
+    font-size: 1.25rem;
+    color: #3d1c00;
+    line-height: 2;
+    font-style: italic;
+  }
+
+  /* Poem pages */
+  .poem-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(90,50,10,0.15);
+  }
+
+  .poem-title {
+    font-family: 'Amiri', serif;
+    font-size: 1.7rem;
+    color: #3d1c00;
+    margin-bottom: 0.25rem;
+  }
+
+  .poem-author {
+    font-family: 'Tajawal', sans-serif;
+    color: rgba(90,50,10,0.55);
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+  }
+
+  .poem-verses {
+    text-align: center;
+  }
+
+  .poem-verse {
+    font-family: 'Amiri', serif;
+    font-size: 1.18rem;
+    color: #2d1500;
+    line-height: 2.6;
+    display: block;
+    transition: color 0.2s;
+  }
+
+  .poem-verse:hover { color: #5c2d00; }
+
+  .verse-separator {
+    text-align: center;
+    color: rgba(212,165,85,0.5);
+    margin: 0.5rem 0;
+    letter-spacing: 4px;
+    font-size: 0.9rem;
+  }
+
+  .page-num-corner {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 2.5rem;
+    font-family: 'Amiri', serif;
+    color: rgba(90,50,10,0.3);
+    font-size: 1rem;
+  }
+
+  /* Page 6 closing */
+  .closing-block {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(90,50,10,0.15);
+  }
+
+  .closing-text {
+    font-family: 'Amiri', serif;
+    color: rgba(90,50,10,0.5);
+    font-size: 1.05rem;
+    line-height: 2;
+  }
+
+  /* ===== UPLOAD OVERLAY ===== */
+  #upload-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: rgba(0,0,0,0.75);
+    align-items: center;
+    justify-content: center;
+  }
+
+  #upload-overlay.active { display: flex; }
+
+  .upload-modal {
+    background: #2d1a08;
+    border: 1px solid rgba(212,165,85,0.4);
+    border-radius: 12px;
+    padding: 2rem;
+    width: 320px;
+    text-align: center;
+  }
+
+  .upload-modal h3 {
+    font-family: 'Amiri', serif;
+    color: #d4a555;
+    margin-bottom: 1.25rem;
+    font-size: 1.2rem;
+  }
+
+  .upload-area {
+    border: 2px dashed rgba(212,165,85,0.4);
+    border-radius: 8px;
+    padding: 2rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-bottom: 1rem;
+  }
+
+  .upload-area:hover {
+    border-color: rgba(212,165,85,0.8);
+    background: rgba(212,165,85,0.05);
+  }
+
+  .upload-area i {
+    font-size: 40px;
+    color: rgba(212,165,85,0.6);
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .upload-area span {
+    color: rgba(212,165,85,0.6);
+    font-family: 'Tajawal', sans-serif;
+    font-size: 0.9rem;
+  }
+
+  .upload-cancel {
+    background: transparent;
+    border: 1px solid rgba(212,165,85,0.3);
+    color: rgba(212,165,85,0.6);
+    padding: 8px 24px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+  }
+
+  .upload-cancel:hover {
+    border-color: rgba(212,165,85,0.7);
+    color: #d4a555;
+  }
+
+  #file-input { display: none; }
+
+  @media (max-width: 600px) {
+    .site-title { font-size: 1.6rem; }
+    .page-content { padding: 2rem 1.25rem 3rem; }
+    .poem-verse { font-size: 1rem; }
+    .page-main-title { font-size: 1.7rem; }
+    .book-nav { padding: 0.75rem 1rem; }
+    .nav-title { font-size: 0.85rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="site-wrapper">
+
+  <!-- ===== LANDING ===== -->
+  <div id="landing">
+    <div class="stars" id="stars-container"></div>
+
+    <div class="book-cover" id="book-cover-display" onclick="openBook()">
+      <div class="cover-image-container" id="cover-img-wrapper">
+        <div class="cover-placeholder" id="cover-placeholder" onclick="event.stopPropagation(); openUpload()" style="display:none;">
+          <i class="ti ti-camera"></i>
+          <span>اختر صورة الغلاف</span>
+        </div>
+        <img id="cover-img" src="index.jpg" alt="غلاف الكتاب" style="display:block;" />
+      </div>
+      <div class="cover-ornament">— ✦ —</div>
+      <div class="cover-title-text">
+        الشهيد الشاعر<br><strong>علي رشم</strong>
+      </div>
+    </div>
+
+    <h1 class="site-title">الشهيد الشاعر علي رشم</h1>
+    <p class="site-subtitle">شاعر · مراسل حربي · شهيد</p>
+
+    <button class="open-book-btn" onclick="openBook()">
+      <i class="ti ti-book-open"></i>
+      افتح الكتاب
+    </button>
+  </div>
+
+  <!-- ===== BOOK VIEW ===== -->
+  <div id="book-view">
+    <nav class="book-nav">
+      <button class="close-btn" onclick="closeBook()" title="عودة للغلاف">
+        <i class="ti ti-arrow-right"></i>
+      </button>
+      <span class="nav-title">الشهيد الشاعر علي رشم</span>
+      <div class="page-controls">
+        <button class="nav-btn" id="prev-btn" onclick="changePage(-1)" disabled>
+          <i class="ti ti-chevron-right"></i>
+        </button>
+        <span class="page-indicator" id="page-ind">الورقة ١ / ٦</span>
+        <button class="nav-btn" id="next-btn" onclick="changePage(1)">
+          <i class="ti ti-chevron-left"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- الورقة الأولى -->
+    <div class="page-content active" id="page-1">
+      <div class="page-1-header">
+        <div class="martyr-badge">شهيد</div>
+        <h1 class="page-main-title">وُلِدَ الشهيد علي رشم</h1>
+        <p class="page-dates">١٩٨٨ · مدينة الصدر · بغداد</p>
+      </div>
+      <div class="ornament-sep">✦ ✦ ✦</div>
+      <p class="bio-text">
+        وُلِدَ الشاعر علي رشم عام ١٩٨٨ في مدينة الصدر في بغداد. عُرِفَ بقصائده الوطنية والشعبية؛ كما كان مراسلاً حربياً خلال المعارك ضد تنظيم داعش.
+      </p>
+      <div class="page-num-corner">١</div>
+    </div>
+
+    <!-- الورقة الثانية -->
+    <div class="page-content" id="page-2">
+      <div class="martyrdom-block">
+        <div class="martyrdom-title">الاستشهاد</div>
+        <p class="martyrdom-text">
+          أُستُشهِدَ الشاعر علي رشم في معركة جرف الصخر وجرف النصر الآن، يوم ٦ نوفمبر ٢٠١٤، إثر إصابته بانفجار عبوة ناسفة.
+        </p>
+      </div>
+      <div class="quote-block">
+        <span class="quote-mark">"</span>
+        <p class="quote-text">مَن مثلي الآن وأنا أحد جنود علي بن أبي طالب</p>
+        <span class="quote-mark" style="display:block; transform:rotate(180deg); margin-top:0.25rem;">"</span>
+        <p class="quote-attr">— أشهر ما يُنسَب إلى علي رشم</p>
+      </div>
+      <div class="page-num-corner">٢</div>
+    </div>
+
+    <!-- الورقة الثالثة -->
+    <div class="page-content" id="page-3">
+      <p class="legacy-text">
+        أُلِّفَت عنه كتب، وأُنتِجَت أعمال درامية توثّق سيرته وقصائده وتضحياته.
+      </p>
+      <div class="remembrance-quote">
+        <p class="remembrance-text">
+          "رَجَل الجسد وبقيَ الأثر<br>الكلمة والمواقف شاهدين على الشجاعة والتضحية"
+        </p>
+      </div>
+      <div class="ornament-sep">✦ ✦ ✦</div>
+      <div class="page-num-corner">٣</div>
+    </div>
+
+    <!-- الورقة الرابعة -->
+    <div class="page-content" id="page-4">
+      <div class="poem-header">
+        <div class="poem-title">قصيدة</div>
+        <div class="poem-author">— لـ علي رشم —</div>
+      </div>
+      <div class="poem-verses">
+        <span class="poem-verse">أِلِكْ چِنِتْ أِلِتِفِتْ و أَدْرِي إِنِتْ مَا مَوْجُوذْ</span>
+        <span class="poem-verse">إِذَا بَبَالِكْ حَرِفْ مِنِ إِسْمِي عَدِّيِتَهْ</span>
+        <div class="verse-separator">· · ·</div>
+        <span class="poem-verse">بَعَدْ مَا أِلِتِفِتْ لَو سِمَا بِظِهْرِي تِطيح</span>
+        <span class="poem-verse">حِسْبَالِكْ گَبِلْ لَا گَلْبِي چِوّيِتَهْ</span>
+        <div class="verse-separator">· · ·</div>
+        <span class="poem-verse">گِمِتْ آخِذْ نِفَسْ و نِرِيتِي يِنْزِلْ غِيِمْ</span>
+        <span class="poem-verse">و إِنْدَلّيِتْ عِلّتِي و جِزْحِي گَضّيِتَهْ</span>
+        <div class="verse-separator">· · ·</div>
+        <span class="poem-verse">رُوحْ الْهُوَة بِظِهْرَكْ و الْهُوِيّتَهْ يِرُوحْ</span>
+        <span class="poem-verse">مُو بَسْ شُوفِي عَنَّكْ سَفْعِي غَضّيِتَهْ</span>
+        <div class="verse-separator">· · ·</div>
+        <span class="poem-verse">گَبِلْ لِلّيِلَكْ و خِلْگِي تِسَابِقَنْ بِالطُّولْ</span>
+        <span class="poem-verse">الَّلِي عَلَيّ مَ چِفَّه هَسَّه بْرُوحِي كِفّيِتَهْ</span>
+        <div class="verse-separator">· · ·</div>
+        <span class="poem-verse">أَنَا بِخَدّ النِّدَى تِلْگَانِي طَابِخْ مَايْ</span>
+        <span class="poem-verse">و صُوتْ النَّفَسْ يِصْهَلْ بَإِذْنِي خَلّيِتَهْ</span>
+        <div class="verse-separator">· · ·</div>
+        <span class="poem-verse">هُوَا بْرُوحِي مِنُ أَطْلَعَه الْمُوتَهْ يِتْنَفِشُونَ</span>
+        <span class="poem-verse">بَسْ عَانِدِتْ رُوحِي و بِيهَا ضَمّيِتَهْ</span>
+        <div class="verse-separator">· · ·</div>
+        <span class="poem-verse">مِشِيِتْ و خِيِطْ وَاهِسْ چِلَّبْ بِمِگْفَايْ</span>
+        <span class="poem-verse">ثِگَلْ مُسْتِحَايْ و جِذْمِي هَفّيِتَهْ</span>
+        <div class="verse-separator">· · ·</div>
+        <span class="poem-verse">رُوحْ إِتْرِسْ فِرَاغَكْ بِالْبُرُودَةْ الْبِيكْ</span>
+        <span class="poem-verse">أَنَا وَجْه الشَّمِسْ بِالْمَلْگَه غَطّيِتَهْ</span>
+      </div>
+      <div class="page-num-corner">٤</div>
+    </div>
+
+    <!-- الورقة الخامسة -->
+    <div class="page-content" id="page-5">
+      <div class="poem-header">
+        <div class="poem-title">اليِحِبَّكْ مِنْ صِدِگْ</div>
+        <div class="poem-author">— للشاعر علي رشم —</div>
+      </div>
+      <div class="poem-verses">
+        <span class="poem-verse">اليِحِبَّكْ مِنْ صِدِگْ لَوْ سَهَمْ يِتْلَگَّاكْ</span>
+        <span class="poem-verse">شِيِلِمَّه الْكَاعْ تِصْغَرْ لِمَنْ تِوَدْعَهْ</span>
+        <div class="verse-separator">· · ·</div>
+        <span class="poem-verse">الِيْصِيرْ مْرَايْتَكْ يِنْدَلْ حَسِرْتَكْ وِينْ</span>
+        <span class="poem-verse">وِيْعْرُفْ وِينْ بِيْكْ مْجَوْدِرَه الْوَجْعَهْ</span>
+        <div class="verse-separator">· · ·</div>
+        <span class="poem-verse">الِيِضْفُرْ حِيرْتَكْ بِجْفُوفَهْ تِلْگَى أَعْذَارْ</span>
+        <span class="poem-verse">الْحِنِيْنِكْ بِيرْ طَشَّرْ يِگْدَر يْرِجْعَهْ</span>
+        <div class="verse-separator">· · ·</div>
+        <span class="poem-verse">أَنَا الضَّايِگْنِي يَعْرُفْ طِينْتِي مِنِ الْهُورْ</span>
+        <span class="poem-verse">بِيهْ مُلُوحْتَهْ وُمَا بَدَّلِتْ طَبْعَهْ</span>
+        <div class="verse-separator">· · ·</div>
+        <span class="poem-verse">أَتْلَگَّى اليِجِينِي مْنِينْ مَا يِشْتَاگْ</span>
+        <span class="poem-verse">الِيِمُرْ عَابِرْ عَلَيَّ مْنِ رُوحِي مَا طَلْعَهْ</span>
+      </div>
+      <div class="page-num-corner">٥</div>
+    </div>
+
+    <!-- الورقة السادسة -->
+    <div class="page-content" id="page-6">
+      <div class="poem-header">
+        <div class="poem-title">قصيدة</div>
+        <div class="poem-author">— لـ علي رشم —</div>
+      </div>
+      <div class="poem-verses">
+        <span class="poem-verse">الهوى يلتم عليّه منين ما ذكروك</span>
+        <span class="poem-verse">وأدك رجلي وأظل بعازة الخنكه</span>
+        <div class="verse-separator">· · ·</div>
+        <span class="poem-verse">وأغص بريحتك.. ما كمت أغص بالزاد</span>
+        <span class="poem-verse">المفارك النسمة العابرة تغركه</span>
+        <div class="verse-separator">· · ·</div>
+        <span class="poem-verse">سهم يمشي الخريف برية الوركة</span>
+      </div>
+      <div class="page-num-corner">٦</div>
+    </div>
+
+    <!-- الورقة السابعة -->
+    <div class="page-content" id="page-7">
+      <div class="poem-header">
+        <div class="poem-title">قصيدة</div>
+        <div class="poem-author">— لـ علي رشم —</div>
+      </div>
+      <div class="poem-verses">
+        <span class="poem-verse">اذا تِمشي بِخيالي تِعثِرك اللَّحْظات</span>
+        <span class="poem-verse">البيْهَن جِدْمَك ويَّه الغِير مِشْيِتَه</span>
+        <div class="verse-separator">· · ·</div>
+        <span class="poem-verse">بَعد لا تِودّي طِيفك ليلي ما بِي شُوك</span>
+        <span class="poem-verse">إجاني وباب جِفني بوِجْهَه سِدّيتَه</span>
+        <div class="verse-separator">· · ·</div>
+        <span class="poem-verse">أنه مِنّي الِورِد ضَلّيت أظُم الشُّوف</span>
+        <span class="poem-verse">لأن كِلِش يِشِبْهَك ما أشْتِمّيتَه</span>
+        <div class="verse-separator">· · ·</div>
+        <span class="poem-verse">بِغِيَم صِدْري الزِّعَل عَطّش هِواي حُرُوف</span>
+        <span class="poem-verse">حِجِيت وماي وِجْهَك ما نِدَلِّيْتَه</span>
+        <div class="verse-separator">· · ·</div>
+        <span class="poem-verse">إلَك جِنت ألتِفِت وأدْري إنْتَ ما مَوجُود</span>
+        <span class="poem-verse">إِذا بالَك حَرْف مِّن إِسْمي عَدِّيْتَه</span>
+        <div class="verse-separator">· · ·</div>
+        <span class="poem-verse">بَعد ما ألتِفِت لَو سِمَه بْظَهْري تِطِيح</span>
+        <span class="poem-verse">حِسْبالَك قَبِل؟ لا كَلْبي جِوّيْتَه</span>
+      </div>
+      <div class="closing-block">
+        <div class="ornament-sep">✦ ✦ ✦</div>
+        <p class="closing-text">
+          رحم الله الشهيد علي رشم<br>وأسكنه فسيح جناته
+        </p>
+      </div>
+      <div class="page-num-corner">٧</div>
+    </div>
+
+  </div><!-- end book-view -->
+
+  <!-- ===== UPLOAD OVERLAY ===== -->
+  <div id="upload-overlay">
+    <div class="upload-modal">
+      <h3>اختر صورة غلاف الكتاب</h3>
+      <div class="upload-area" onclick="document.getElementById('file-input').click()">
+        <i class="ti ti-photo"></i>
+        <span>اضغط لاختيار صورة من جهازك</span>
+      </div>
+      <input type="file" id="file-input" accept="image/*" onchange="handleImageUpload(event)" />
+      <button class="upload-cancel" onclick="closeUpload()">إلغاء</button>
+    </div>
+  </div>
+
+</div><!-- end site-wrapper -->
+
+<script>
+  let currentPage = 1;
+  const totalPages = 7;
+  const arabicNums = ['١','٢','٣','٤','٥','٦','٧'];
+
+  // Generate stars
+  const starsContainer = document.getElementById('stars-container');
+  for (let i = 0; i < 70; i++) {
+    const star = document.createElement('div');
+    star.className = 'star';
+    star.style.left = Math.random() * 100 + '%';
+    star.style.top = Math.random() * 100 + '%';
+    star.style.animationDelay = Math.random() * 3 + 's';
+    star.style.animationDuration = (2 + Math.random() * 3) + 's';
+    if (Math.random() > 0.7) {
+      star.style.width = '3px';
+      star.style.height = '3px';
+    }
+    starsContainer.appendChild(star);
+  }
+
+  function openBook() {
+    document.getElementById('landing').style.display = 'none';
+    document.getElementById('book-view').style.display = 'block';
+    currentPage = 1;
+    updateView();
+  }
+
+  function closeBook() {
+    document.getElementById('book-view').style.display = 'none';
+    document.getElementById('landing').style.display = 'flex';
+  }
+
+  function changePage(dir) {
+    const newPage = currentPage + dir;
+    if (newPage < 1 || newPage > totalPages) return;
+    document.getElementById('page-' + currentPage).classList.remove('active');
+    currentPage = newPage;
+    document.getElementById('page-' + currentPage).classList.add('active');
+    updateView();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function updateView() {
+    document.getElementById('prev-btn').disabled = currentPage === 1;
+    document.getElementById('next-btn').disabled = currentPage === totalPages;
+    document.getElementById('page-ind').textContent =
+      'الورقة ' + arabicNums[currentPage - 1] + ' / ' + arabicNums[totalPages - 1];
+  }
+
+  function openUpload() {
+    document.getElementById('upload-overlay').classList.add('active');
+  }
+
+  function closeUpload() {
+    document.getElementById('upload-overlay').classList.remove('active');
+  }
+
+  function handleImageUpload(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const img = document.getElementById('cover-img');
+      img.src = e.target.result;
+      img.style.display = 'block';
+      document.getElementById('cover-placeholder').style.display = 'none';
+      closeUpload();
+    };
+    reader.readAsDataURL(file);
+  }
+
+  document.getElementById('upload-overlay').addEventListener('click', function(e) {
+    if (e.target === this) closeUpload();
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (document.getElementById('book-view').style.display !== 'none') {
+      if (e.key === 'ArrowLeft') changePage(1);
+      if (e.key === 'ArrowRight') changePage(-1);
+      if (e.key === 'Escape') closeBook();
+    }
+  });
+</script>
+
+</body>
+</html>
